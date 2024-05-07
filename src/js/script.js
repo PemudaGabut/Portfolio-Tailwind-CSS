@@ -10,6 +10,29 @@ window.onscroll = function() {
     }
 }
 
+// Smooth Scrool
+document.addEventListener("DOMContentLoaded", function() {
+    // Ambil semua elemen dengan class "scroll-smooth"
+    var smoothScrollLinks = document.querySelectorAll(".scroll-smooth");
+
+    // Loop melalui setiap link
+    smoothScrollLinks.forEach(function(link) {
+        // Tambahkan event listener untuk setiap link
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); // Mencegah default action dari link
+
+            // Dapatkan target dari link
+            var targetId = this.getAttribute("href");
+
+            // Gulir secara halus ke elemen target menggunakan smooth scrolling
+            document.querySelector(targetId).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+});
+
+
 // Hamburger
 const hamburger = document.querySelector('#hamburger');
 const navMenu = document.querySelector('#nav-menu');
